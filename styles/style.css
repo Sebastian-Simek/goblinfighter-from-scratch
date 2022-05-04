@@ -89,3 +89,23 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+input {
+    margin: 20px;
+}
+
+button {
+    margin: 10px;
+}
+
+div {
+    margin: 20px;
+    border: solid  2px black;
+    padding: 10px;
+}
+
+span {
+    margin: 20px;
+    border: solid 2px black;
+    padding: 10px;
+}
