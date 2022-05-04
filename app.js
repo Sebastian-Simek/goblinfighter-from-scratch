@@ -1,6 +1,8 @@
-// import functions and grab DOM elements
+import { renderGoblin } from './utils.js';
+
 const newGoblin = document.getElementById('new-goblin');
 const addGoblin = document.getElementById('add-goblin-button');
+const goblinList = document.getElementById('goblin-display');
 // let state
 let goblinArray = [];
 // set event listeners 
@@ -10,5 +12,14 @@ addGoblin.addEventListener('click', () => {
         HP: Math.ceil(Math.random() * 5)
     };
     goblinArray.push(goblinObject);
+    displayGoblin();
 });
-console.log(goblinArray);
+
+function displayGoblin() {
+    goblinList.textContent = '';
+    for (let goblin of goblinArray){
+        const goblinOutput = renderGoblin(goblin);
+        goblinList.appendChild(goblinOutput);
+    }
+}
+
