@@ -3,7 +3,7 @@ import { renderGoblin } from './utils.js';
 const newGoblin = document.getElementById('new-goblin');
 const addGoblin = document.getElementById('add-goblin-button');
 const goblinList = document.getElementById('goblin-display');
-// let state
+
 let goblinArray = [];
 // set event listeners 
 addGoblin.addEventListener('click', () => {
