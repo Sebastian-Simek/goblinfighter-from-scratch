@@ -34,25 +34,26 @@ function displayGoblin() {
 
 function goblinClickHandler(booger) {
     const randomNum = Math.random();
+    const randomNum2 = Math.random();
     if (booger.HP <= 0) return;
-    if (playerHP === 0) return alert('you lose');
-    if (randomNum < 1) {
+    if (randomNum < 0) {
         booger.HP--;
         alert(`you hit ${booger.name} !`);
-        if (randomNum < 1) {
-            alert(`${booger.name} hit you back`);
-            playerHP--;
-            playerHPDisplay.textContent = `you have ${playerHP} HP`;
+    } else alert(`you missed ${booger.name}`);
+    if (randomNum2 < .5) {
+        alert(`${booger.name} hit you back`);
+        playerHP--;
+        playerHPDisplay.textContent = `you have ${playerHP} HP`;
+        if (playerHP === 0) {
+            return alert('You Lose!');
         }
-    } 
+    } else {
+        alert(`${booger.name} missed!`);
+    }
+
     if (booger.HP === 0) {
         goblinsSlain++;
         defeatedGoblins.textContent = `You have slain ${goblinsSlain} goblin(s)`;
-    }
-    if (randomNum > 5) {
-        playerHP--;
-        alert('you have missed');
-        
     }
     displayGoblin();
 }
