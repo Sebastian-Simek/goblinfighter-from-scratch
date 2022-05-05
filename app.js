@@ -3,8 +3,10 @@ import { renderGoblin } from './utils.js';
 const newGoblin = document.getElementById('new-goblin');
 const addGoblin = document.getElementById('add-goblin-button');
 const goblinList = document.getElementById('goblin-display');
+const playerHPDisplay = document.getElementById('player HP');
 
 let goblinArray = [];
+let playerHP = 2;
 // set event listeners 
 addGoblin.addEventListener('click', () => {
     let goblinObject = {
@@ -29,9 +31,15 @@ function displayGoblin() {
 function goblinClickHandler(booger) {
     const randomNum = Math.random();
     if (booger.HP <= 0) return;
-    if (randomNum < 1) {
+    if (playerHP === 0) return alert('you lose');
+    if (randomNum < 0) {
         booger.HP--;
         alert('you have hit the goblin');
+    } 
+    if (randomNum > 0) {
+        playerHP--;
+        alert('you have missed');
+        playerHPDisplay.textContent = `you have ${playerHP} HP`;
     }
     displayGoblin();
 }
