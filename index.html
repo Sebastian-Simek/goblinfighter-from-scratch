@@ -12,13 +12,14 @@
     <title>Document</title>
 </head>
 
-<body>
-    <header>
-    </header>
-    <main>
-        <section class="goblin-section">
-            <H2>Goblin Hunter</H2>
-            <input type="text" id="new-goblin">
+<body id="explosion">
+    <div id="hidden">
+        <header>
+        </header>
+        <main>
+            <section class="goblin-section">
+                <H2>Goblin Hunter</H2>
+                <input type="text" id="new-goblin">
             <button id="add-goblin-button">Add Goblin</button>
             <div id="goblin-display">
                 I'm going to display my goblins here:
@@ -31,11 +32,12 @@
             <span id="player HP">You have 10HP</span>
             <img src="./assets/ninja.png" alt="cartoon ninja" width="300px">
         </section>
+        <audio id="explosion-sound" src="./assets/explosion.mp3"></audio>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
-
+</div>
     <script type="module" src="./app.js"></script>
 </body>
 

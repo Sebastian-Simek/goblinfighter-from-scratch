@@ -5,11 +5,14 @@ const addGoblin = document.getElementById('add-goblin-button');
 const goblinList = document.getElementById('goblin-display');
 const playerHPDisplay = document.getElementById('player HP');
 const defeatedGoblins = document.getElementById('defeated-goblins');
+const loserScreen = document.getElementById('explosion');
+const loserScreen2 = document.getElementById('hidden');
+const explosionSOund = document.getElementById('explosion-sound');
 
-let goblinArray = [{ name: 'Professor Oak', HP: 7 }, { name: 'Eddie', HP: 4 }];
-let playerHP = 10;
+let goblinArray = [{ name: 'Professor Oak', HP: 6 }, { name: 'Eddie', HP: 4 }];
+let playerHP = 1;
 let goblinsSlain = 0;
-// set event listeners 
+
 displayGoblin();
 
 addGoblin.addEventListener('click', () => {
@@ -36,24 +39,32 @@ function goblinClickHandler(booger) {
     const randomNum = Math.random();
     const randomNum2 = Math.random();
     if (booger.HP <= 0) return;
-    if (randomNum < 0) {
+    if (randomNum < .7) {
         booger.HP--;
         alert(`you hit ${booger.name} !`);
+        if (booger.HP === 0) {
+            goblinsSlain++;
+            return defeatedGoblins.textContent = `You have slain ${goblinsSlain} goblin(s)`;
+        }
     } else alert(`you missed ${booger.name}`);
     if (randomNum2 < .5) {
         alert(`${booger.name} hit you back`);
         playerHP--;
         playerHPDisplay.textContent = `you have ${playerHP} HP`;
         if (playerHP === 0) {
-            return alert('You Lose!');
+            alert('You Lose!');
+            loserScreen.classList.add('backgrounds');
+            loserScreen2.classList.add('hidden');
+            explosionSOund.play();
         }
     } else {
         alert(`${booger.name} missed!`);
     }
-
     if (booger.HP === 0) {
         goblinsSlain++;
         defeatedGoblins.textContent = `You have slain ${goblinsSlain} goblin(s)`;
     }
     displayGoblin();
 }
+
+

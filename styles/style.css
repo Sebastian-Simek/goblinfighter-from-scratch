@@ -2,12 +2,12 @@
 body {
     /* feel free to update these css variables for a quick theme */
     
-    --color1: white;
+    /* --color1: white;
     --color2: white;
     --color3: white;
     --color4: white;
     --color5: white;
-    
+     */
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
         
     /* --color1: hsla(349, 69%, 76%, 1);
@@ -28,7 +28,7 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    /* background-color: var(--color2); */
 }
 
 main {
@@ -110,4 +110,18 @@ span {
     margin: 20px;
     border: solid 2px black;
     padding: 10px;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+.backgrounds {
+    background-image: url('/assets/explosion.jpg');
+    background-size: contain;
+    opacity: 0;
+
+}
+
+.hidden {
+    display: none;
 }
