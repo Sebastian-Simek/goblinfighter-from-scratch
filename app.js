@@ -4,9 +4,11 @@ const newGoblin = document.getElementById('new-goblin');
 const addGoblin = document.getElementById('add-goblin-button');
 const goblinList = document.getElementById('goblin-display');
 const playerHPDisplay = document.getElementById('player HP');
+const defeatedGoblins = document.getElementById('defeated-goblins');
 
 let goblinArray = [];
-let playerHP = 2;
+let playerHP = 10;
+let goblinsSlain = 0;
 // set event listeners 
 addGoblin.addEventListener('click', () => {
     let goblinObject = {
@@ -30,13 +32,18 @@ function displayGoblin() {
 
 function goblinClickHandler(booger) {
     const randomNum = Math.random();
-    if (booger.HP <= 0) return;
+    // if (booger.HP <= 0) return;
     if (playerHP === 0) return alert('you lose');
-    if (randomNum < 0) {
+    if (randomNum < .5) {
         booger.HP--;
         alert('you have hit the goblin');
+        console.log(goblinsSlain);
     } 
-    if (randomNum > 0) {
+    if (booger.HP === 0) {
+        goblinsSlain++;
+        defeatedGoblins.textContent = `You have slain ${goblinsSlain} goblin(s)`;
+    }
+    if (randomNum > .5) {
         playerHP--;
         alert('you have missed');
         playerHPDisplay.textContent = `you have ${playerHP} HP`;
