@@ -38,7 +38,12 @@ function goblinClickHandler(booger) {
     if (playerHP === 0) return alert('you lose');
     if (randomNum < 1) {
         booger.HP--;
-        alert('you have hit the goblin');
+        alert(`you hit ${booger.name} !`);
+        if (randomNum < 1) {
+            alert(`${booger.name} hit you back`);
+            playerHP--;
+            playerHPDisplay.textContent = `you have ${playerHP} HP`;
+        }
     } 
     if (booger.HP === 0) {
         goblinsSlain++;
@@ -47,7 +52,7 @@ function goblinClickHandler(booger) {
     if (randomNum > 5) {
         playerHP--;
         alert('you have missed');
-        playerHPDisplay.textContent = `you have ${playerHP} HP`;
+        
     }
     displayGoblin();
 }
