@@ -16,6 +16,15 @@ let goblinsSlain = 0;
 displayGoblin();
 
 addGoblin.addEventListener('click', () => {
+    if (newGoblin.value === '') {
+        let goblinObject1 = {
+            name: `Goblin :${Math.ceil(Math.random() * 200)}`,
+            HP: '1'
+        };
+        goblinArray.push(goblinObject1);
+        return displayGoblin();
+    }
+    
     let goblinObject = {
         name: newGoblin.value,
         HP: Math.ceil(Math.random() * 5)
@@ -54,9 +63,12 @@ function goblinClickHandler(booger) {
         playerHPDisplay.textContent = `you have ${playerHP} HP`;
         if (playerHP === 0) {
             alert('You Lose!');
-            loserScreen.classList.add('backgrounds');
-            loserScreen2.classList.add('hidden');
+            setTimeout(()=> {
+                loserScreen.classList.add('backgrounds');
+                loserScreen2.classList.add('hidden');
+            }, '2300');
             explosionSOund.play();
+            // Three second delay to explosion
         }
     } else {
         alert(`${booger.name} missed!`);

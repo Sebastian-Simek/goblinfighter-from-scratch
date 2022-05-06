@@ -118,8 +118,6 @@ span {
 .backgrounds {
     background-image: url('/assets/explosion.jpg');
     background-size: contain;
-    transform:perspective(0);
-
 }
 
 .hidden {
