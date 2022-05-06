@@ -123,3 +123,7 @@ span {
 .hidden {
     display: none;
 }
+
+.dead {
+    background-color: red;
+}
