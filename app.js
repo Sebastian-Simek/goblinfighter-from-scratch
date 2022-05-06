@@ -10,7 +10,7 @@ const loserScreen2 = document.getElementById('hidden');
 const explosionSOund = document.getElementById('explosion-sound');
 
 let goblinArray = [{ name: 'Professor Oak', HP: 5 }, { name: 'Eddie', HP: 4 }];
-let playerHP = 5;
+let playerHP = 1;
 let goblinsSlain = 0;
 
 displayGoblin();
