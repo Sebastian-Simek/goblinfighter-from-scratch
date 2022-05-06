@@ -7,10 +7,11 @@ const playerHPDisplay = document.getElementById('player HP');
 const defeatedGoblins = document.getElementById('defeated-goblins');
 const loserScreen = document.getElementById('explosion');
 const loserScreen2 = document.getElementById('hidden');
-const explosionSOund = document.getElementById('explosion-sound');
+const explosionSound = document.getElementById('explosion-sound');
 
-let goblinArray = [{ name: 'Professor Oak', HP: 5 }, { name: 'Eddie', HP: 4 }];
-let playerHP = 1;
+let goblinArray = [{ name: 'Professor Oak', HP: 5 }, { name: 'Eddie', HP: 1 }];
+console.log(goblinArray);
+let playerHP = 10;
 let goblinsSlain = 0;
 
 displayGoblin();
@@ -20,6 +21,7 @@ addGoblin.addEventListener('click', () => {
         let goblinObject1 = {
             name: `Goblin #${Math.ceil(Math.random() * 200)}`,
             HP: '1'
+            // HP: Math.ceil(Math.random() * 5)
         };
         goblinArray.push(goblinObject1);
         return displayGoblin();
@@ -35,6 +37,9 @@ addGoblin.addEventListener('click', () => {
 function displayGoblin() {
     goblinList.textContent = '';
     for (let goblin of goblinArray){
+        if (goblin.HP === 0){
+            goblinArray.pop();
+        }
         const goblinOutput = renderGoblin(goblin);
         goblinOutput.addEventListener('click', () => {
             goblinClickHandler(goblin);
@@ -46,6 +51,8 @@ function displayGoblin() {
 function goblinClickHandler(booger) {
     const randomNum = Math.random();
     const randomNum2 = Math.random();
+    // if (goblinsSlain > 2)
+    //     alert('PowerBoost!!!');
     if (booger.HP === 0) return;
     if (randomNum < .7) {
         booger.HP--;
@@ -66,7 +73,7 @@ function goblinClickHandler(booger) {
                 loserScreen.classList.add('backgrounds');
                 loserScreen2.classList.add('hidden');
             }, '2300');
-            explosionSOund.play();
+            explosionSound.play();
         }
     } else {
         alert(`${booger.name} missed!`);
