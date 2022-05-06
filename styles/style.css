@@ -118,7 +118,7 @@ span {
 .backgrounds {
     background-image: url('/assets/explosion.jpg');
     background-size: contain;
-    opacity: 0;
+    transform:perspective(0);
 
 }
 

@@ -9,8 +9,8 @@ const loserScreen = document.getElementById('explosion');
 const loserScreen2 = document.getElementById('hidden');
 const explosionSOund = document.getElementById('explosion-sound');
 
-let goblinArray = [{ name: 'Professor Oak', HP: 6 }, { name: 'Eddie', HP: 4 }];
-let playerHP = 1;
+let goblinArray = [{ name: 'Professor Oak', HP: 5 }, { name: 'Eddie', HP: 4 }];
+let playerHP = 5;
 let goblinsSlain = 0;
 
 displayGoblin();
@@ -38,16 +38,17 @@ function displayGoblin() {
 function goblinClickHandler(booger) {
     const randomNum = Math.random();
     const randomNum2 = Math.random();
-    if (booger.HP <= 0) return;
+    if (booger.HP === 0) return;
     if (randomNum < .7) {
         booger.HP--;
         alert(`you hit ${booger.name} !`);
         if (booger.HP === 0) {
             goblinsSlain++;
-            return defeatedGoblins.textContent = `You have slain ${goblinsSlain} goblin(s)`;
+            defeatedGoblins.textContent = `You have slain ${goblinsSlain} goblin(s)`;
+            return displayGoblin();
         }
     } else alert(`you missed ${booger.name}`);
-    if (randomNum2 < .5) {
+    if (randomNum2 < .7) {
         alert(`${booger.name} hit you back`);
         playerHP--;
         playerHPDisplay.textContent = `you have ${playerHP} HP`;
