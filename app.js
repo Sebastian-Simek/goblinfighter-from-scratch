@@ -11,10 +11,12 @@ const explosionSound = document.getElementById('explosion-sound');
 
 let goblinArray = [{ name: 'Professor Oak', HP: 5 }, { name: 'Eddie', HP: 1 }];
 console.log(goblinArray);
-let playerHP = 10;
+let playerHP = 1;
 let goblinsSlain = 0;
 
 displayGoblin();
+
+// create a function to run renderGoblin. Run
 
 addGoblin.addEventListener('click', () => {
     if (newGoblin.value === '') {
@@ -40,13 +42,13 @@ function displayGoblin() {
         if (goblin.HP === 0){
             goblinArray.pop();
         }
-        const goblinOutput = renderGoblin(goblin);
-        goblinOutput.addEventListener('click', () => {
-            goblinClickHandler(goblin);
-        });
-        goblinList.appendChild(goblinOutput);
-    } 
-}
+    const goblinOutput = renderGoblin(goblin);
+    goblinOutput.addEventListener('click', () => {
+        goblinClickHandler(goblin);
+    });
+    goblinList.appendChild(goblinOutput);
+} 
+
 
 function goblinClickHandler(booger) {
     const randomNum = Math.random();
@@ -54,7 +56,7 @@ function goblinClickHandler(booger) {
     // if (goblinsSlain > 2)
     //     alert('PowerBoost!!!');
     if (booger.HP === 0) return;
-    if (randomNum < .7) {
+    if (randomNum < 1) {
         booger.HP--;
         alert(`you hit ${booger.name} !`);
         if (booger.HP === 0) {

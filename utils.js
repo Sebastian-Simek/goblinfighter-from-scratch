@@ -14,5 +14,5 @@ export function renderGoblin(goblin) {
     goblinList.textContent = `${goblin.name} with ${goblin.HP} HP`;
 
     // goblinList.append(goblinName, goblinEmoji);
-    return goblinList; 
+    return goblinList;
 }
