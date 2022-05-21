@@ -42,12 +42,13 @@ function displayGoblin() {
         if (goblin.HP === 0){
             goblinArray.pop();
         }
-    const goblinOutput = renderGoblin(goblin);
-    goblinOutput.addEventListener('click', () => {
-        goblinClickHandler(goblin);
-    });
-    goblinList.appendChild(goblinOutput);
-} 
+        const goblinOutput = renderGoblin(goblin);
+        goblinOutput.addEventListener('click', () => {
+            goblinClickHandler(goblin);
+        });
+        goblinList.appendChild(goblinOutput);
+    } 
+}
 
 
 function goblinClickHandler(booger) {
@@ -86,5 +87,3 @@ function goblinClickHandler(booger) {
     }
     displayGoblin();
 }
-
-
